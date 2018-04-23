@@ -34,6 +34,7 @@ func FactRoute(w http.ResponseWriter, r *http.Request) {
 }
 
 // TranslateRoute takes an http path and translates it into a call to Facter.
-func TranslateRoute(route string) {
+func TranslateRoute(route string)  {
+
 	fmt.Println(route)
 }
