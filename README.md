@@ -13,21 +13,21 @@ $ curl -XGET http://testserver:4023/os
 The result would be:
 ```json
 {
-  architecture => "x86_64",
-  family => "RedHat",
-  hardware => "x86_64",
-  name => "RedHat",
-  release => {
-    full => "7.4",
-    major => "7",
-    minor => "4"
+  "architecture" : "x86_64",
+  "family" : "RedHat",
+  "hardware" : "x86_64",
+  "name" : "RedHat",
+  "release" : {
+    "full" : "7.4",
+    "major" : "7",
+    "minor" : "4"
   },
-  selinux => {
-    config_mode => "enforcing",
-    current_mode => "enforcing",
-    enabled => true,
-    enforced => true,
-    policy_version => "28"
+  "selinux" : {
+    "config_mode" : "enforcing",
+    "current_mode" : "enforcing",
+    "enabled" : true,
+    "enforced" : true,
+    "policy_version" : "28"
   }
 }
 ```
