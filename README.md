@@ -8,7 +8,7 @@ systems using HTTP GET.
 
 For example, if you want the OS version of a remote system:
 ```bash
-$ curl -XGET http://testserver:4023/os
+$ curl -XGET http://testserver:4023/fact/os
 ```
 The result would be:
 ```json
