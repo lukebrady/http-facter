@@ -1,7 +1,10 @@
 package main
 
-import "net/http"
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+	"regexp"
+)
 
 //IndexRoute is a simple way to learn about http-facter.
 func IndexRoute(w http.ResponseWriter, r *http.Request) {
@@ -34,7 +37,22 @@ func FactRoute(w http.ResponseWriter, r *http.Request) {
 }
 
 // TranslateRoute takes an http path and translates it into a call to Facter.
-func TranslateRoute(route string)  {
-
-	fmt.Println(route)
+func TranslateRoute(route string) (string, error) {
+	// Create a regular expression object to replace the /fact/ route.
+	re1, err := regexp.Compile("/fact/")
+	if err != nil {
+		return "", err
+	}
+	// Replace the /fact/ route.
+	reroute := re1.ReplaceAllString(route, "")
+	// Create another regular expression object to replace all "/" with ".".
+	re2, err := regexp.Compile("/")
+	if err != nil {
+		return "", err
+	}
+	// Replace all /.
+	factCmd := re2.ReplaceAllString(reroute, ".")
+	fmt.Println(factCmd)
+	// Return the newly created command.
+	return factCmd, nil
 }
