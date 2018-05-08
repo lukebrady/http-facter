@@ -32,19 +32,18 @@ func FactRoute(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte(forbidden))
 	} else {
 		// Translate the route into a command.
-		//command, err := TranslateRoute(r.RequestURI)
-		//if err != nil {
+		command, err := TranslateRoute(r.RequestURI)
+		if err != nil {
 
-		//}
+		}
 		// Run facter on the system and return the output.
-		// output, err := RunFacter(command)
-		// if err != nil {
+		output, err := RunFacter(command)
+		if err != nil {
+			w.Write([]byte("An error occured."))
+		}
 
-		// }
-		output := "{hello => \"Hello\"}"
-		factJSON := FacterToJSON(output)
 		w.WriteHeader(http.StatusOK)
-		w.Write(factJSON)
+		w.Write(output)
 	}
 }
 
