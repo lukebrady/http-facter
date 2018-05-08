@@ -39,7 +39,7 @@ func FactRoute(w http.ResponseWriter, r *http.Request) {
 		// Run facter on the system and return the output.
 		output, err := RunFacter(command)
 		if err != nil {
-			w.Write([]byte("An error occured."))
+			fmt.Println("Error")
 		}
 
 		w.WriteHeader(http.StatusOK)
