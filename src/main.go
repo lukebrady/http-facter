@@ -15,5 +15,6 @@ func main() {
 	// and is then returned.
 	mux.HandleFunc("/fact/", FactRoute)
 	fmt.Println("Staring http-facter on port 4023.")
+	// Listen and start to serve requests on port 4023.
 	http.ListenAndServe(":4023", mux)
 }
